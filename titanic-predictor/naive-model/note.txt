@@ -1,0 +1,24 @@
+File: submission.txt
+
+Description:
+This file contains predicted survival results for Titanic passengers, generated
+using a naive, feature-weighted model written in Python.
+
+The model uses the following features to get highest accuracy for test on Kaggle website:
+- Gender (Sex)
+- Passenger class (Pclass)
+- Passenger title (Title)
+
+Each feature is assigned a weight based on its impact on survival rate differences.
+Average survival probabilities are calculated per category (e.g. Male/Female, First/Third Class),
+and combined into a single survival chance per passenger.
+
+A decision threshold is selected by testing multiple values and choosing the one
+that yields the highest prediction accuracy on the training set.
+
+Training accuracy: **80.13%**
+Test accuracy: **77.75%**
+
+Note:
+This approach avoids machine learning algorithms and provides a transparent,
+interpretable baseline for further modeling.

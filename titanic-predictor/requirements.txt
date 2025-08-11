@@ -1,0 +1,7 @@
+pandas
+seaborn(for naive-model)
+matplotlib
+numpy
+sci-kit
+xgboost
+

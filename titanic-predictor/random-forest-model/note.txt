@@ -1,0 +1,35 @@
+Description:
+This file contains predicted survival results for Titanic passengers, generated
+using a Random Forest classifier implemented in Python with hyperparameter tuning
+via GridSearchCV (scikit-learn).
+
+The model utilizes the following features:
+- Gender (Sex)
+- Passenger class (Pclass)
+- FamilySize, caculated SibSp + Parch + 1
+- Age
+- Ticket Price(Fare)
+- Title (extracted from the Name field)
+- HasCabin (first character of Cabin field)
+
+Key preprocessing steps:
+- Missing values are filled using SimpleImputer
+- Non-numerical values are converted to numbers using OneHotEncoding()
+- New features such as FamilySize and Title are engineered
+
+Model training:
+- Random Forest classifier trained using GridSearchCV with 5-fold cross-validation
+- Hyperparameters tuned include:
+  - Number of estimators (n_estimators)
+  - Tree depth (max_depth)
+  - Minimum samples to split and leaf
+  - Max features used per split
+
+Training accuracy: **82.78%**
+Cross-validation accuracy: **80.85%**
+Validation accuracy: **81.17%%**
+Test accuracy: **78.71%**
+
+Notes:
+All visual plots such as decision boundaries, training curves, and threshold exploration
+are included in the naive-predictor implementation for reference.

@@ -1,0 +1,45 @@
+Description:
+This file contains predicted survival results for Titanic passengers, generated using an XGBoost classifier implemented in 
+Python with hyperparameter tuning via GridSearchCV (scikit-learn).
+
+Features Used:
+The model utilizes the following engineered and raw features:
+- Passenger class (Pclass)
+- Age group (AgeGroup – binned into Child, Teen, Adult, Senior)
+- Title (extracted from the Name field: e.g., Mr, Mrs, Miss, Master, Rare)
+- Family size (FamilySize = SibSp + Parch + 1)
+- Gender (Sex, mapped to 0/1)
+
+Additional features created but not used in the final model:
+- IsAlone (binary indicator of traveling alone)
+- FarePerPerson (adjusted fare per person)
+- HasCabin (binary indicator of cabin presence)
+- Deck (first character of Cabin field)
+
+Key Preprocessing Steps:
+- Missing values in Age and FarePerPerson are filled with the median using OneHotEncoder
+- Rare titles are grouped under "Rare"
+- Age is discretized into categories (Child, Teen, Adult, Senior)
+- Feature engineering includes creation of FamilySize, IsAlone, FarePerPerson, and HasCabin
+
+Model Training:
+- XGBoost classifier trained using GridSearchCV with 5-fold cross-validation
+- Tuned hyperparameters include:
+  - Number of estimators (n_estimators)
+  - Tree depth (max_depth)
+  - Learning rate (learning_rate)
+  - Subsampling rate (subsample)
+  - Column subsampling (colsample_bytree)
+  - L1 regularization (reg_alpha)
+  - L2 regularization (reg_lambda)
+  - Minimum child weight (min_child_weight)
+
+Evaluation Metrics:
+- Training Accuracy: **83.15%**
+- Cross-Validation Accuracy: **82.44%**
+- Validation Accuracy: **84.92%**
+- Test Accuracy (on holdout set): **77.75%**
+
+Notes:
+All visual plots such as decision boundaries, training curves, and threshold exploration
+are included in the naive-predictor implementation for reference.

@@ -1,0 +1,36 @@
+Description:
+This program predicts survival outcomes for Titanic passengers using a custom logistic regression model implemented from scratch in Python.
+
+Features used for prediction:
+- Age
+- FamilySize (computed as Parch + SibSp + 1)
+- FarePerPerson (Fare divided by FamilySize)
+- Sex
+- Pclass (Passenger class)
+- Title (extracted from passenger’s name)
+
+Data preprocessing steps:
+- Missing values in numerical features are imputed using the median value.
+- Integer features (like FamilySize) are imputed separately without scaling.
+- Categorical features have missing values imputed with the most frequent category and are then encoded using one-hot encoding.
+- Continuous numerical features are scaled using StandardScaler for normalization.
+
+Model training:
+- Logistic regression is trained via gradient descent for 5000 iterations with a learning rate of 0.05.
+- The sigmoid activation function maps linear outputs to probabilities.
+- A custom function tests multiple classification thresholds (from 0.1 to 0.9) to select the one maximizing accuracy on the training data.
+
+Post-processing and evaluation:
+- The model outputs survival probabilities for each passenger.
+- Based on the optimized threshold, these probabilities are converted into final binary survival predictions.
+- Validation accuracy is reported to assess model performance.
+
+Performance metrics:
+- Validation accuracy: approximately 78.21%
+- Test accuracy (on Kaggle leaderboard): approximately 78.71%
+
+Additional notes:
+- Feature engineering (such as FamilySize and FarePerPerson) improves predictive power.
+- The code is designed to be clear and modular for educational purposes, demonstrating end-to-end machine learning workflow without using 
+built-in logistic regression from libraries.
+- Visualization of prediction boundaries, training progress, and threshold tuning are available in complementary implementations for deeper analysis.
